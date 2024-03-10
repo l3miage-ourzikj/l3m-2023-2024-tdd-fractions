@@ -22,7 +22,7 @@ export interface Fraction {
 /**
  * Définition de l'exception à lever lorsqu'on tente de construire une fraction mal formée
  */
-export const illFormedException = new Error("ILL FORMED fraction, should be of the form Z/Z")
+export const illFormedException = new Error("ILL FORMED fraction, should be of the form Z/(Z-{0})")
 
 
 /**
