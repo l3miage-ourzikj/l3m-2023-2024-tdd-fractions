@@ -44,8 +44,8 @@ export function fraction(numérateur: number, dénominateur: number): Fraction {
     let d = Math.abs(dénominateur);
 
     const PGCD = pgcd(n, d);
-    n= n/ PGCD;
-    d = d / PGCD;
+    n = Math.floor(n / PGCD);
+    d = Math.floor(d / PGCD);
 
     return {
         toString: () => d != 1 ? `${n}/${d}` : `${n}`,
@@ -62,17 +62,21 @@ export function add(f1: Fraction, f2: Fraction): Fraction {
     const n2 = f2.numérateur();
     const d2 = f2.dénominateur();
     //calcul du résultat
-    let newNum = n1 * d2 + n2 * d1;
+    let newNum = (n1 * d2) + (n2 * d1);
     let newDenum = d1 * d2;
+
 
     //Simplification de la fraction obtenue par division sur le pgcd(newNum,newDenum)
     const PGCD = pgcd(newNum, newDenum);
-    newNum = newNum / PGCD;
-    newDenum = newDenum / PGCD;
+    newNum = Math.floor(newNum / PGCD);
+
+    newDenum = Math.floor(newDenum / PGCD);
+
 
     let s = Math.sign(newNum) * Math.sign(newDenum);
     newNum = s * Math.abs(newNum)
-    newDenum = s * Math.abs(newDenum);
+
+    newDenum = Math.abs(newDenum);
 
 
 
@@ -80,8 +84,56 @@ export function add(f1: Fraction, f2: Fraction): Fraction {
         toString: () => newDenum != 1 ? `${newNum}/${newDenum}` : `${newNum}`,
         numérateur: () => newNum,
         dénominateur: () => newDenum
-    }
+    } 
 }
+
+
+export function multiply(f1:Fraction,f2:Fraction):Fraction{
+    const n1 = f1.numérateur();
+    const d1 = f1.dénominateur();
+    const n2 = f2.numérateur();
+    const d2 = f2.dénominateur();
+    //calcul du résultat
+    let newNum = (n1 * n2);
+    let newDenum = d1 * d2;
+
+
+    //Simplification de la fraction obtenue par division sur le pgcd(newNum,newDenum)
+    const PGCD = pgcd(newNum, newDenum);
+    newNum = Math.floor(newNum / PGCD);
+
+    newDenum = Math.floor(newDenum / PGCD);
+
+
+    let s = Math.sign(newNum) * Math.sign(newDenum);
+    newNum = s * Math.abs(newNum)
+
+    newDenum = Math.abs(newDenum);
+
+   
+
+    return {
+        toString: () => newDenum != 1 ? `${newNum}/${newDenum}` : `${newNum}`,
+        numérateur: () => newNum,
+        dénominateur: () => newDenum
+    } 
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function pgcd(a: number, b: number) {
     if (b) {
