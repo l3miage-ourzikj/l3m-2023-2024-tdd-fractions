@@ -25,6 +25,7 @@ export interface Fraction {
 export const illFormedException = new Error("ILL FORMED fraction, should be of the form Z/(Z-{0})")
 
 
+
 /**
  * Construit, si c'est possible, une fraction à partir d'un nominateur et d'un dénominateur (tous deux dans Z)
  * Renvoie la forme simplifiée de la fraction.
@@ -57,6 +58,7 @@ export function fraction(numérateur: number, dénominateur: number): Fraction {
 
 /* ------------------- FRACTION UTILS ---------------------- */
 export function add(f1: Fraction, f2: Fraction): Fraction {
+    
     const n1 = f1.numérateur();
     const d1 = f1.dénominateur();
     const n2 = f2.numérateur();
@@ -96,6 +98,7 @@ export function multiply(f1:Fraction,f2:Fraction):Fraction{
     //calcul du résultat
     let newNum = (n1 * n2);
     let newDenum = d1 * d2;
+
 
 
     //Simplification de la fraction obtenue par division sur le pgcd(newNum,newDenum)

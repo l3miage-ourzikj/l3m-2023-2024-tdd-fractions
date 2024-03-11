@@ -75,11 +75,39 @@ describe("Additions possibles de deux fractions", () => {
         const f1 = fraction(2, 5);
         const f2 = fraction(3, 10);
         const resultedFraction = add(f1, f2);
-        expect(() => resultedFraction.numérateur()).toEqual(7);
-        expect(() => resultedFraction.dénominateur()).toEqual(10);
-        expect(() => resultedFraction.toString()).toEqual("7/10");
+        expect(resultedFraction.numérateur()).toEqual(7);
+        expect(resultedFraction.dénominateur()).toEqual(10);
+        expect(resultedFraction.toString()).toEqual("7/10");
 
     });
+    it("Should be possible to add the two following fractions: -2/5 & 3/10", () => {
+        const f1 = fraction(-2, 5);
+        const f2 = fraction(3, 10);
+        const resultedFraction = add(f1, f2);
+        expect(resultedFraction.numérateur()).toEqual(-1);
+        expect(resultedFraction.dénominateur()).toEqual(10);
+        expect(resultedFraction.toString()).toEqual("-1/10");
+
+    });
+    it("Should be possible to add the two following fractions: -2/5 & -3/10", () => {
+        const f1 = fraction(-2, 5);
+        const f2 = fraction(-3, 10);
+        const resultedFraction = add(f1, f2);
+        expect(resultedFraction.numérateur()).toEqual(-7);
+        expect(resultedFraction.dénominateur()).toEqual(10);
+        expect(resultedFraction.toString()).toEqual("-7/10");
+
+    });
+    it("Should be possible to add the two following fractions: -8/5 & 10/10", () => {
+        const f1 = fraction(-8, 5);
+        const f2 = fraction(10, 10);
+        const resultedFraction = add(f1, f2);
+        expect(resultedFraction.numérateur()).toEqual(-3);
+        expect(resultedFraction.dénominateur()).toEqual(5);
+        expect(resultedFraction.toString()).toEqual("-3/5");
+
+    });
+    
 
 
 
@@ -95,9 +123,9 @@ describe("Multiplications possibles de deux fractions", () => {
         const f1 = fraction(2, 5);
         const f2 = fraction(3, 10);
         const resultedFraction = multiply(f1, f2);
-        expect(() => resultedFraction.numérateur()).toEqual(3);
-        expect(() => resultedFraction.dénominateur()).toEqual(25);
-        expect(() => resultedFraction.toString()).toEqual("3/25");
+        expect( resultedFraction.numérateur()).toEqual(3);
+        expect( resultedFraction.dénominateur()).toEqual(25);
+        expect( resultedFraction.toString()).toEqual("3/25");
 
     });
 
