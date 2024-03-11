@@ -1,4 +1,4 @@
-import { illFormedException, fraction, add,multiply } from "./fractions";
+import { illFormedException, fraction, add,multiply, divide } from "./fractions";
 
 
 describe("Instanciations de fractions impossibles", () => {
@@ -126,6 +126,25 @@ describe("Multiplications possibles de deux fractions", () => {
         expect( resultedFraction.numérateur()).toEqual(3);
         expect( resultedFraction.dénominateur()).toEqual(25);
         expect( resultedFraction.toString()).toEqual("3/25");
+
+    });
+
+
+
+})
+
+
+
+
+describe("Divisions  possibles de deux fractions", () => {
+
+    it("Should be possible to divide the two following fractions: 5/4 & 1/8", () => {
+        const f1 = fraction(5, 4);
+        const f2 = fraction(1, 8);
+        const resultedFraction = divide(f1, f2);
+        expect( resultedFraction.numérateur()).toEqual(10);
+        expect( resultedFraction.dénominateur()).toEqual(1);
+        expect( resultedFraction.toString()).toEqual("10");
 
     });
 

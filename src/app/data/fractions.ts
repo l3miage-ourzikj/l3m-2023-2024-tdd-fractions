@@ -58,7 +58,7 @@ export function fraction(numérateur: number, dénominateur: number): Fraction {
 
 /* ------------------- FRACTION UTILS ---------------------- */
 export function add(f1: Fraction, f2: Fraction): Fraction {
-    
+
     const n1 = f1.numérateur();
     const d1 = f1.dénominateur();
     const n2 = f2.numérateur();
@@ -86,11 +86,11 @@ export function add(f1: Fraction, f2: Fraction): Fraction {
         toString: () => newDenum != 1 ? `${newNum}/${newDenum}` : `${newNum}`,
         numérateur: () => newNum,
         dénominateur: () => newDenum
-    } 
+    }
 }
 
 
-export function multiply(f1:Fraction,f2:Fraction):Fraction{
+export function multiply(f1: Fraction, f2: Fraction): Fraction {
     const n1 = f1.numérateur();
     const d1 = f1.dénominateur();
     const n2 = f2.numérateur();
@@ -113,13 +113,13 @@ export function multiply(f1:Fraction,f2:Fraction):Fraction{
 
     newDenum = Math.abs(newDenum);
 
-   
+
 
     return {
         toString: () => newDenum != 1 ? `${newNum}/${newDenum}` : `${newNum}`,
         numérateur: () => newNum,
         dénominateur: () => newDenum
-    } 
+    }
 
 
 }
@@ -127,6 +127,12 @@ export function multiply(f1:Fraction,f2:Fraction):Fraction{
 
 
 
+export function divide(f1: Fraction, f2: Fraction): Fraction {
+    const n2 = f2.numérateur();
+    const d2 = f2.dénominateur();
+    //diviser 2 fractions f1 et f2 revient à multiplier f1 par l'inverse de f2
+    return multiply(f1, fraction(d2, n2));
+}
 
 
 
