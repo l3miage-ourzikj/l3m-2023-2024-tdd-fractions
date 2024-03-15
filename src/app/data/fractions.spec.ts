@@ -1,9 +1,9 @@
-import { illFormedException, fraction, add,multiply, divide, Fraction } from "./fractions";
+import { illFormedException, fraction, add, multiply, divide, Fraction } from "./fractions";
 
 
 describe("Instanciations de fractions impossibles", () => {
     it("shouldn't be possible to build the fraction 3/0", () => {
-        expect( fraction(3, 0)).toEqual(undefined);
+        expect(fraction(3, 0)).toEqual(undefined);
     });
 
     it("shouldn't be possible to build the fraction NaN/2", () => {
@@ -80,8 +80,8 @@ describe("Additions possibles de deux fractions", () => {
 
     });
     it("Should be possible to add the two following fractions: -2/5 & 3/10", () => {
-        const f1 = fraction(-2, 5)as Fraction;
-        const f2 = fraction(3, 10)as Fraction;
+        const f1 = fraction(-2, 5) as Fraction;
+        const f2 = fraction(3, 10) as Fraction;
         const resultedFraction = add(f1, f2);
         expect(resultedFraction.numérateur()).toEqual(-1);
         expect(resultedFraction.dénominateur()).toEqual(10);
@@ -89,7 +89,7 @@ describe("Additions possibles de deux fractions", () => {
 
     });
     it("Should be possible to add the two following fractions: -2/5 & -3/10", () => {
-        const f1 = fraction(-2, 5)as Fraction;
+        const f1 = fraction(-2, 5) as Fraction;
         const f2 = fraction(-3, 10) as Fraction;
         const resultedFraction = add(f1, f2);
         expect(resultedFraction.numérateur()).toEqual(-7);
@@ -98,15 +98,15 @@ describe("Additions possibles de deux fractions", () => {
 
     });
     it("Should be possible to add the two following fractions: -8/5 & 10/10", () => {
-        const f1 = fraction(-8, 5)as Fraction;
-        const f2 = fraction(10, 10)as Fraction;
+        const f1 = fraction(-8, 5) as Fraction;
+        const f2 = fraction(10, 10) as Fraction;
         const resultedFraction = add(f1, f2);
         expect(resultedFraction.numérateur()).toEqual(-3);
         expect(resultedFraction.dénominateur()).toEqual(5);
         expect(resultedFraction.toString()).toEqual("-3/5");
 
     });
-    
+
 
 
 
@@ -119,67 +119,77 @@ describe("Additions possibles de deux fractions", () => {
 describe("Multiplications possibles de deux fractions", () => {
 
     it("Should be possible to multiply the two following fractions: 2/5 & 3/10", () => {
-        const f1 = fraction(2, 5)as Fraction;
+        const f1 = fraction(2, 5) as Fraction;
         const f2 = fraction(3, 10) as Fraction;
         const resultedFraction = multiply(f1, f2);
-        expect( resultedFraction.numérateur()).toEqual(3);
-        expect( resultedFraction.dénominateur()).toEqual(25);
-        expect( resultedFraction.toString()).toEqual("3/25");
+        expect(resultedFraction.numérateur()).toEqual(3);
+        expect(resultedFraction.dénominateur()).toEqual(25);
+        expect(resultedFraction.toString()).toEqual("3/25");
 
     });
     it("Should be possible to multiply the two following fractions: 1/5 & 1/5", () => {
-        const f1 = fraction(1, 5)as Fraction;
+        const f1 = fraction(1, 5) as Fraction;
         const f2 = fraction(1, 5) as Fraction;
         const resultedFraction = multiply(f1, f2);
-        expect( resultedFraction.numérateur()).toEqual(1);
-        expect( resultedFraction.dénominateur()).toEqual(25);
-        expect( resultedFraction.toString()).toEqual("1/25");
+        expect(resultedFraction.numérateur()).toEqual(1);
+        expect(resultedFraction.dénominateur()).toEqual(25);
+        expect(resultedFraction.toString()).toEqual("1/25");
 
     });
     it("Should be possible to multiply the two following fractions: 0/3 & 12/2", () => {
-        const f1 = fraction(0, 3)as Fraction;
+        const f1 = fraction(0, 3) as Fraction;
         const f2 = fraction(12, 2) as Fraction;
         const resultedFraction = multiply(f1, f2);
-        expect( resultedFraction.numérateur()).toEqual(0);
-        expect( resultedFraction.dénominateur()).toEqual(1);
-        expect( resultedFraction.toString()).toEqual("0");
+        expect(resultedFraction.numérateur()).toEqual(0);
+        expect(resultedFraction.dénominateur()).toEqual(1);
+        expect(resultedFraction.toString()).toEqual("0");
 
     });
 
     it("Should be possible to multiply the two following fractions: -4/3 & 4/5", () => {
-        const f1 = fraction(-4, 3)as Fraction;
+        const f1 = fraction(-4, 3) as Fraction;
         const f2 = fraction(4, 5) as Fraction;
         const resultedFraction = multiply(f1, f2);
-        expect( resultedFraction.numérateur()).toEqual(-16);
-        expect( resultedFraction.dénominateur()).toEqual(15);
-        expect( resultedFraction.toString()).toEqual("-16/15");
+        expect(resultedFraction.numérateur()).toEqual(-16);
+        expect(resultedFraction.dénominateur()).toEqual(15);
+        expect(resultedFraction.toString()).toEqual("-16/15");
 
     });
 
     it("Should be possible to multiply the two following fractions: -4/3 & -4/5", () => {
-        const f1 = fraction(-4, 3)as Fraction;
+        const f1 = fraction(-4, 3) as Fraction;
         const f2 = fraction(-4, 5) as Fraction;
         const resultedFraction = multiply(f1, f2);
-        expect( resultedFraction.numérateur()).toEqual(16);
-        expect( resultedFraction.dénominateur()).toEqual(15);
-        expect( resultedFraction.toString()).toEqual("16/15");
+        expect(resultedFraction.numérateur()).toEqual(16);
+        expect(resultedFraction.dénominateur()).toEqual(15);
+        expect(resultedFraction.toString()).toEqual("16/15");
 
     });
     it("Should be possible to multiply the two following fractions: -4/3 & 4/-5", () => {
-        const f1 = fraction(-4, 3)as Fraction;
+        const f1 = fraction(-4, 3) as Fraction;
         const f2 = fraction(4, -5) as Fraction;
         const resultedFraction = multiply(f1, f2);
-        expect( resultedFraction.numérateur()).toEqual(16);
-        expect( resultedFraction.dénominateur()).toEqual(15);
-        expect( resultedFraction.toString()).toEqual("16/15");
+        expect(resultedFraction.numérateur()).toEqual(16);
+        expect(resultedFraction.dénominateur()).toEqual(15);
+        expect(resultedFraction.toString()).toEqual("16/15");
 
     });
 
 
 })
 
+describe("Divisions  impossibles de deux fractions", () => {
+
+    it("Shouldn't be possible to divide the two following fractions: 5/4 & 0/8", () => {
+        const f1 = fraction(5, 4) as Fraction;
+        const f2 = fraction(0, 8) as Fraction;
+        const resultedFraction = divide(f1, f2);
+        expect(resultedFraction).toEqual(undefined);
 
 
+    });
+
+})
 
 describe("Divisions  possibles de deux fractions", () => {
 
@@ -187,11 +197,23 @@ describe("Divisions  possibles de deux fractions", () => {
         const f1 = fraction(5, 4) as Fraction;
         const f2 = fraction(1, 8) as Fraction;
         const resultedFraction = divide(f1, f2);
-        expect( resultedFraction?.numérateur()).toEqual(10);
-        expect( resultedFraction?.dénominateur()).toEqual(1);
-        expect( resultedFraction?.toString()).toEqual("10");
+        expect(resultedFraction?.numérateur()).toEqual(10);
+        expect(resultedFraction?.dénominateur()).toEqual(1);
+        expect(resultedFraction?.toString()).toEqual("10");
 
     });
+
+    it("Should be possible to divide the two following fractions: 12/-4 & 7/8", () => {
+        const f1 = fraction(12, -4) as Fraction;
+        const f2 = fraction(7, 8) as Fraction;
+        const resultedFraction = divide(f1, f2);
+        expect(resultedFraction?.numérateur()).toEqual(-24);
+        expect(resultedFraction?.dénominateur()).toEqual(7);
+        expect(resultedFraction?.toString()).toEqual("-24/7");
+
+    });
+
+
 
 
 
