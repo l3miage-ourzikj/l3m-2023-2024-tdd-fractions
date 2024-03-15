@@ -34,11 +34,11 @@ export const illFormedException = new Error("ILL FORMED fraction, should be of t
  * @returns La fraction nominateur / dénominateur si les contraintes sont respectées
  * @throws "ILL FORMED fraction, should be of the form Z/Z"
  */
-export function fraction(numérateur: number, dénominateur: number): Fraction {
+export function fraction(numérateur: number, dénominateur: number): Fraction | undefined{
     if (!Number.isInteger(numérateur)
         || !Number.isInteger(dénominateur)
         || dénominateur === 0
-    ) throw illFormedException;
+    ) return undefined //throw illFormedException;
 
     let s = Math.sign(numérateur) * Math.sign(dénominateur)
     let n = s * Math.abs(numérateur);
@@ -127,11 +127,13 @@ export function multiply(f1: Fraction, f2: Fraction): Fraction {
 
 
 
-export function divide(f1: Fraction, f2: Fraction): Fraction {
+export function divide(f1: Fraction, f2: Fraction): Fraction | undefined{
     const n2 = f2.numérateur();
     const d2 = f2.dénominateur();
+    if(n2==0)
+        return undefined;
     //diviser 2 fractions f1 et f2 revient à multiplier f1 par l'inverse de f2
-    return multiply(f1, fraction(d2, n2));
+    return multiply(f1, fraction(d2, n2) as Fraction);
 }
 
 
