@@ -127,7 +127,53 @@ describe("Multiplications possibles de deux fractions", () => {
         expect( resultedFraction.toString()).toEqual("3/25");
 
     });
+    it("Should be possible to multiply the two following fractions: 1/5 & 1/5", () => {
+        const f1 = fraction(1, 5)as Fraction;
+        const f2 = fraction(1, 5) as Fraction;
+        const resultedFraction = multiply(f1, f2);
+        expect( resultedFraction.numérateur()).toEqual(1);
+        expect( resultedFraction.dénominateur()).toEqual(25);
+        expect( resultedFraction.toString()).toEqual("1/25");
 
+    });
+    it("Should be possible to multiply the two following fractions: 0/3 & 12/2", () => {
+        const f1 = fraction(0, 3)as Fraction;
+        const f2 = fraction(12, 2) as Fraction;
+        const resultedFraction = multiply(f1, f2);
+        expect( resultedFraction.numérateur()).toEqual(0);
+        expect( resultedFraction.dénominateur()).toEqual(1);
+        expect( resultedFraction.toString()).toEqual("0");
+
+    });
+
+    it("Should be possible to multiply the two following fractions: -4/3 & 4/5", () => {
+        const f1 = fraction(-4, 3)as Fraction;
+        const f2 = fraction(4, 5) as Fraction;
+        const resultedFraction = multiply(f1, f2);
+        expect( resultedFraction.numérateur()).toEqual(-16);
+        expect( resultedFraction.dénominateur()).toEqual(15);
+        expect( resultedFraction.toString()).toEqual("-16/15");
+
+    });
+
+    it("Should be possible to multiply the two following fractions: -4/3 & -4/5", () => {
+        const f1 = fraction(-4, 3)as Fraction;
+        const f2 = fraction(-4, 5) as Fraction;
+        const resultedFraction = multiply(f1, f2);
+        expect( resultedFraction.numérateur()).toEqual(16);
+        expect( resultedFraction.dénominateur()).toEqual(15);
+        expect( resultedFraction.toString()).toEqual("16/15");
+
+    });
+    it("Should be possible to multiply the two following fractions: -4/3 & 4/-5", () => {
+        const f1 = fraction(-4, 3)as Fraction;
+        const f2 = fraction(4, -5) as Fraction;
+        const resultedFraction = multiply(f1, f2);
+        expect( resultedFraction.numérateur()).toEqual(16);
+        expect( resultedFraction.dénominateur()).toEqual(15);
+        expect( resultedFraction.toString()).toEqual("16/15");
+
+    });
 
 
 })

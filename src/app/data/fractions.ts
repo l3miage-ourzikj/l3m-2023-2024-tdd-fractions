@@ -49,7 +49,7 @@ export function fraction(numérateur: number, dénominateur: number): Fraction |
     d = Math.floor(d / PGCD);
 
     return {
-        toString: () => d != 1 ? `${n}/${d}` : `${n}`,
+        toString: () =>(d != 1 )? `${n}/${d}` :  `${n}`,
         numérateur: () => n,
         dénominateur: () => d
     }
